@@ -2,7 +2,7 @@ from riotwatcher import LolWatcher
 from requests.exceptions import HTTPError
 import cfg
 
-key = cfg.key
+key = cfg.apiKey
 watcher = LolWatcher(key)
 my_region = 'na1'
 
@@ -72,4 +72,3 @@ def winCheck(userName):
         return True
     else:
         return False
-
