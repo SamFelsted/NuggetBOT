@@ -1,7 +1,8 @@
 from riotwatcher import LolWatcher
 from requests.exceptions import HTTPError
+import cfg
 
-key = "RGAPI-2069fdd7-de4d-4eb6-a207-9a386992ab44"
+key = cfg.key
 watcher = LolWatcher(key)
 my_region = 'na1'
 
