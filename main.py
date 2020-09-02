@@ -5,7 +5,6 @@ import random
 import cfg
 
 client = discord.Client()
-password = 
 # noinspection PyRedeclaration
 client = commands.Bot(command_prefix='$')
 flames = cfg.insults
@@ -38,4 +37,5 @@ async def lolrate(ctx, name):
         await ctx.send(flames[random.randint(0, len(flames) - 1)])
 
 if __name__ == "__main__":
-    client.run(password)
+    client.run(cfg.token)
+
