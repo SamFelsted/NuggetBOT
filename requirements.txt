@@ -1,0 +1,5 @@
+git+https://github.com/SamFelsted/NuggetBOT
+discord
+riotwatcher
+requests
+random
