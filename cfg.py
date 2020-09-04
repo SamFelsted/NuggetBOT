@@ -5,4 +5,4 @@ insults = ['...But what kind of a play was that? I’d rather ff this earth if I
            "...How much more can you feed?", "...huh...that bad eh?"]
 apiKey = os.environ.get("KEY")
 token = os.environ.get("TOKEN")
-violations = ['heck', 'frick']
+violations = ['owo', 'uwu', 'o w o', 'u w u']
