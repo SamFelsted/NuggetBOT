@@ -4,6 +4,7 @@ from discord.ext import commands
 import random
 import cfg
 
+
 client = discord.Client()
 
 client = commands.Bot(command_prefix='$')
@@ -21,10 +22,12 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
+
     if any(bad_word in message.content.strip().lower() for bad_word in anime):
-        await message.channel.send("https://cdn.discordapp.com/attachments/738265138079072280/751277876527235132/image0.png")
+        ms = message
         await message.delete()
-        await message.channel.send("That is an anime violation!")
+        await ms.channel.send("https://cdn.discordapp.com/attachments/738265138079072280/751277876527235132/image0.png")
+        await ms.channel.send(f"That is an anime violation! {message.author.mention}")
     else:
         await client.process_commands(message)
 
