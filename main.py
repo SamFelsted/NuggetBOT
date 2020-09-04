@@ -19,6 +19,15 @@ async def on_ready():
     print("Welcome to the NugBot Backend!")
 
 
+@client.event
+async def on_message(message):
+    if any(bad_word in message.content.strip().lower() for bad_word in anime):
+        await message.delete()
+        await message.channel.send("That is an anime violation!")
+    else:
+        await client.process_commands(message)
+
+
 @client.command()
 async def ping(ctx):
     await ctx.send(f'Pong! {round(client.latency * 1000)} ms')
