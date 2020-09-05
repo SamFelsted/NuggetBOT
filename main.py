@@ -22,9 +22,9 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-
     if any(bad_word in message.content.strip().lower() for bad_word in anime):
         ms = message
+        print(ms)
         await message.delete()
         await ms.channel.send("https://cdn.discordapp.com/attachments/738265138079072280/751277876527235132/image0.png")
         await ms.channel.send(f"That is an anime violation! {message.author.mention}")
