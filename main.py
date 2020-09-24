@@ -22,7 +22,7 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if any(bad_word in message.content.strip().lower() for bad_word in anime) and message.author.id != 691479754980982805:
+    if any(bad_word in message.content.strip().lower() for bad_word in anime) and message.author.id != 691479754980982805 and message.author.id != 691350878875025429:
         ms = message
         print(ms.content)
         await message.delete()
