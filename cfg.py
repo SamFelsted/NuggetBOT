@@ -10,4 +10,4 @@ good = ['...Not bad', "... I've seen worse", "...ez", "... Yeah they were probab
         "... huh, didn't see that coming"]
 apiKey = os.environ.get("KEY")
 token = os.environ.get("TOKEN")
-violations = ['owo', 'uwu', 'o w o', 'u w u']
+violations = ['owo', 'uwu', 'o w o', 'u w u', 'ow o', 'o wo', 'uw u', 'u wu']
