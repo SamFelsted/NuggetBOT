@@ -9,6 +9,7 @@ client = discord.Client()
 
 client = commands.Bot(command_prefix='$')
 flames = cfg.insults
+good = cfg.good
 anime = cfg.violations
 
 
@@ -22,19 +23,28 @@ async def on_ready():
 
 @client.event
 async def on_message(message):
-    if any(bad_word in message.content.strip().lower() for bad_word in anime) and message.author.id != 691479754980982805 and message.author.id != 691350878875025429:
+    if any(bad_word in message.content.strip().lower() for bad_word in anime):
         ms = message
-        print(ms.content)
         await message.delete()
         await ms.channel.send("https://cdn.discordapp.com/attachments/738265138079072280/751277876527235132/image0.png")
         await ms.channel.send(f"That is an anime violation! {message.author.mention}")
     else:
         await client.process_commands(message)
+        link = await message.channel.create_invite(max_age=30, max_uses=1, unique='true')
+        print(link)
+        #   user = await client.fetch_user(672959705672581161)
+        #   user2 = await client.fetch_user(691479754980982805)
+        #   await message.guild.unban(user)
+        #   await message.guild.unban(user2)
 
 
 @client.command()
 async def ping(ctx):
     await ctx.send(f'Pong! {round(client.latency * 1000)} ms')
+    #   user = await client.fetch_user(672959705672581161)
+    #   link = await ctx.channel.create_invite(max_age=300)
+    #   print(link)
+    #   await ctx.guild.unban(user)
 
 
 @client.command()
@@ -64,15 +74,17 @@ async def lolrate(ctx, name):
         message = f"Ah yes {name} had a kda of {data} and {game} the game..."
         await ctx.send(message)
         if won and data >= 1.5:
-            await ctx.send("Not bad...")
+            await ctx.send(good[random.randint(0, len(good) - 1)])
         elif not won and data >= 3:
             await ctx.send("Well you lost, guess you can't carry your team that hard")
         else:
             await ctx.send(flames[random.randint(0, len(flames) - 1)])
             activity = discord.Activity(name=(name + ' fail'), type=discord.ActivityType.watching)
             await client.change_presence(activity=activity)
-    else:
+    if data == "No data":
         print("Not found")
         await ctx.send(f"No Data for {name}")
+    else:
+        print("An error has happened")
 if __name__ == "__main__":
     client.run(cfg.token)
