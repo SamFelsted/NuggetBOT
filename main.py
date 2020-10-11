@@ -25,9 +25,10 @@ async def on_ready():
 async def on_message(message):
     if any(bad_word in message.content.strip().lower() for bad_word in anime) and message.author.id != 691479754980982805:
         ms = message
+        print(ms.content)
         await message.delete()
         await ms.channel.send("https://cdn.discordapp.com/attachments/738265138079072280/751277876527235132/image0.png")
-        await ms.channel.send(f"That is an anime violation! {message.author.mention}")
+        await ms.channel.send(f"That is an anime violation! {ms.author.mention}")
     else:
         await client.process_commands(message)
         #   link = await message.channel.create_invite(max_age=30, max_uses=1, unique='true')
