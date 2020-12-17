@@ -11,7 +11,7 @@ client = commands.Bot(command_prefix='$')
 flames = cfg.insults
 good = cfg.good
 anime = cfg.violations
-
+gif = cfg.gifs
 
 @client.event
 async def on_ready():
