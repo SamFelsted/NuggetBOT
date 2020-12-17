@@ -11,3 +11,4 @@ good = ['...Not bad', "... I've seen worse", "...ez", "... Yeah they were probab
 apiKey = os.environ.get("KEY")
 token = os.environ.get("TOKEN")
 violations = ['owo', 'uwu']
+gif = ["gify", "tenor"]
